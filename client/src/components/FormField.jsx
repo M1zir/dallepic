@@ -1,4 +1,17 @@
-import React from 'react'
+/**
+ * FormField is a reusable component that renders a form field with a label, input, and optional "surprise me" button.
+ * @param {string} labelName - The label for the form field.
+ * @param {string} type - The type of input (e.g. text, email, password).
+ * @param {string} name - The name of the input field.
+ * @param {string} value - The value of the input field.
+ * @param {function} onChange - The function to handle changes to the input field.
+ * @param {string} placeholder - The placeholder text for the input field.
+ * @param {function} handleChange - The function to handle changes to the input field.
+ * @param {boolean} isSurpriseMe - A boolean indicating whether to show the "surprise me" button.
+ * @param {function} handleSurpriseMe - The function to handle clicks on the "surprise me" button.
+ * @returns {JSX.Element} - A form field with a label, input, and optional "surprise me" button.
+ */
+import React from 'react';
 
 const FormField = ({labelName, type, name, value, onChange, placeholder, handleChange, isSurpriseMe, handleSurpriseMe}) => {
   return (
@@ -33,4 +46,5 @@ const FormField = ({labelName, type, name, value, onChange, placeholder, handleC
   )
 }
 
-export default FormField
+export default FormField;
+

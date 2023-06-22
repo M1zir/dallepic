@@ -1,3 +1,11 @@
+/**
+ * Loader Component
+ * 
+ * This component is used to display a loading spinner on the screen.
+ * It is a functional component that returns a div with an SVG element.
+ * 
+ * @returns {JSX.Element} A div with an SVG element that displays a loading spinner.
+ */
 import React from 'react';
 
 const Loader = () => (
@@ -10,3 +18,4 @@ const Loader = () => (
 );
 
 export default Loader;
+

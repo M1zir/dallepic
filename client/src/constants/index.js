@@ -1,3 +1,10 @@
+/**
+ * An array of prompts for a surprise me feature.
+ * Each prompt is a unique and creative idea for an image or artwork.
+ * The prompts range from surrealistic to futuristic and from cute to eerie.
+ * The array is used to randomly generate a prompt for the user to create an image or artwork based on.
+ * @type {Array<string>}
+ */
 export const surpriseMePrompts = [
     'an armchair in the shape of an avocado',
     'a surrealist dream-like oil painting by Salvador Dalí of a cat playing checkers',
@@ -46,3 +53,4 @@ export const surpriseMePrompts = [
     'A man wanders through the rainy streets of Tokyo, with bright neon signs, 50mm',
     'A Space Shuttle flying above Cape Town, digital art',
   ];
+

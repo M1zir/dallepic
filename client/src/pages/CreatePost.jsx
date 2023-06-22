@@ -1,12 +1,18 @@
+// This code is responsible for rendering the CreatePost component, which allows users to create and share images using DALL-E.
+
 import React, {useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {preview} from '../assets';
 import {getRandomPrompts} from '../utils';
 import {FormField, Loader} from '../components';
 
+// Get a random prompt from the list of prompts
 const prompts = getRandomPrompts()
 
-
+/**
+ * CreatePost component allows users to create and share images using DALL-E.
+ * @returns {JSX.Element} CreatePost component
+ */
 const CreatePost = () => {
   const  navigate = useNavigate();
   const [form, setForm] = useState({
@@ -16,30 +22,40 @@ const CreatePost = () => {
   });
   const [generatingImg, setGeneratingImg] = useState(false);
   const [loading, setLoading] = useState(false);
-  const generateImage = async () => {
-  if(form.prompt){
-    try {
-      setGeneratingImg(true); 
-      const response = await fetch('https://dallepic.onrender.com/api/v1/dalle', {
-          method: 'POST',
-          headers: {
-              'content-type': 'application/json', 
-            },
-              body: JSON.stringify({prompt: form.prompt})
-          
-      })
-      const data = await response.json();
-      setForm({...form, photo: `data:image/jpeg;base64,${data.photo}`});
-    } catch (error) {
-     alert(error)
-    } finally {
-      setGeneratingImg(false); 
-     }
-    } else {
-        alert('Please enter a prompt')
-    }
-  };
 
+  /**
+   * Generate an image using the DALL-E API
+   * @returns {Promise<void>}
+   */
+  const generateImage = async () => {
+    if(form.prompt){
+      try {
+        setGeneratingImg(true); 
+        const response = await fetch('https://dallepic.onrender.com/api/v1/dalle', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json', 
+              },
+                body: JSON.stringify({prompt: form.prompt})
+            
+        })
+        const data = await response.json();
+        setForm({...form, photo: `data:image/jpeg;base64,${data.photo}`});
+      } catch (error) {
+       alert(error)
+      } finally {
+        setGeneratingImg(false); 
+       }
+      } else {
+          alert('Please enter a prompt')
+      }
+    };
+
+  /**
+   * Handle form submission
+   * @param {Event} e - form submission event
+   * @returns {Promise<void>}
+   */
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -68,14 +84,25 @@ const CreatePost = () => {
         } 
       
   }
+
+  /**
+   * Handle form input changes
+   * @param {Event} e - form input change event
+   */
   const handleChange = (e) => {
     setForm({...form, [e.target.name]: e.target.value})
   }
+
+  /**
+   * Handle "Surprise Me" button click
+   */
   const handleSurpriseMe = () => {
     const randomPrompt = getRandomPrompts(form.prompt);
     setForm({...form, prompt: randomPrompt})
   }
-    return (
+
+  // Render the CreatePost component
+  return (
     <section className="max-w-7xl mx-auto ">
       <div>
           <h1 className="font-extrabold text-[#070231] text-[32px]">Create</h1>
@@ -149,3 +176,6 @@ const CreatePost = () => {
 }
 
 export default CreatePost
+
+
+
