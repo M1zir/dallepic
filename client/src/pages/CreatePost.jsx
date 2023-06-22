@@ -20,7 +20,7 @@ const CreatePost = () => {
   if(form.prompt){
     try {
       setGeneratingImg(true); 
-      const response = await fetch('http://localhost:8080/api/v1/dalle', {
+      const response = await fetch('https://dallepic.onrender.com/api/v1/dalle', {
           method: 'POST',
           headers: {
               'content-type': 'application/json', 
@@ -47,7 +47,7 @@ const CreatePost = () => {
         setLoading(true);
 
           try {
-          const response = await fetch('http://localhost:8080/api/v1/posts', {
+          const response = await fetch('https://dallepic.onrender.com/api/v1/posts', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ const CreatePost = () => {
     return (
     <section className="max-w-7xl mx-auto ">
       <div>
-          <h1 className="font-extrabold text-[#222328] text-[32px]">Create</h1>
+          <h1 className="font-extrabold text-[#070231] text-[32px]">Create</h1>
           <p className="mt-2 text-[#666e75] text-[16px] max-w [500px]"> Create Stunning Images using DALL-E and share them with others. </p>
         </div>
         <div>
@@ -103,7 +103,7 @@ const CreatePost = () => {
                   handleSurpriseMe={handleSurpriseMe}
                 
                   />
-                <div className="relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 p-3 h-64 flex justify-center items-center">
+                <div className="relative bg-[#cdd6da] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 p-3 h-64 flex justify-center items-center">
                   {form.photo ? (
                   <img 
                   src={form.photo}
@@ -127,7 +127,7 @@ const CreatePost = () => {
                 <button
                 type="button"
                 onClick={generateImage}
-                className="text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+                className="text-white bg-[#15058f] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center">
                   {generatingImg ? 'Generating...' : 'Generate'}
                 </button>
 
@@ -136,7 +136,7 @@ const CreatePost = () => {
                     <p className="mt-2 text-[#666e75] text-[14px]">Now if you want you can share this image with other.</p>
                     <button 
                     type="submit"
-                    className="mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                    className="mt-3 text-white bg-[#247075] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
                    >
                       {loading ? 'Sharing...' : 'Share it with others'}
                     </button>

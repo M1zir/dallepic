@@ -21,7 +21,7 @@ const Home = () => {
             setloading(true);
 
             try {
-              const response = await fetch('http://localhost:8080/api/v1/posts', {
+              const response = await fetch('https://dallepic.onrender.com/api/v1/posts', {
                 method: 'GET',
                 headers: {
                   'Content-Type': 'application/json',}
@@ -56,8 +56,8 @@ const Home = () => {
     return (
     <section className="max-w-7x1 mx-auto">
         <div>
-          <h1 className="font-extrabold text-[#222328] text-[32px]">What Others Made</h1>
-          <p className="mt-2 text-[#666e75] text-[16px] max-w [500px]"> Check out what others has made so far, is yours better? </p>
+          <h1 className="font-extrabold text-[#070231] text-[32px]">Discover</h1>
+          <p className="mt-2 text-[#666e75] text-[16px] max-w [500px]"> Check out what others has generated so far, will yours better? </p>
         </div>
         <div className="mt-16">
           <FormField
